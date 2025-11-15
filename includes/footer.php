@@ -30,9 +30,9 @@
                 <div class="col-12 col-md-4 text-center text-md-start">
                     <h5 class="fw-bold mb-4 text-white">Quick Links</h5>
                     <ul class="footer-links justify-content-center justify-content-md-start">
-                       <li><a href="services.php">Delivered Services</a></li>
-                        <li><a href="courses.php">Completed Courses</a></li>
-                        <li><a href="projects.php">Completed Projects</a></li>
+                       <li><a href="public/services.php">Delivered Services</a></li>
+                        <li><a href="public/courses.php">Completed Courses</a></li>
+                        <li><a href="public/projects.php">Completed Projects</a></li>
                     </ul>
                 </div>
                 <!-- Contact Info -->

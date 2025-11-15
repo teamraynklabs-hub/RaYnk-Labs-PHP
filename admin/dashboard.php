@@ -4,7 +4,7 @@ session_start();
 require_once __DIR__ . '/../includes/db.php';
 
 if (empty($_SESSION['admin_id'])) {
-    header('Location: /projects/RaYnk-Labs/admin/index.php');
+    header('Location: index.php');
     exit;
 }
 
@@ -174,7 +174,7 @@ foreach ($types as $key => $label) {
 
     <nav class="navbar admin-nav sticky-top">
         <div class="container-fluid d-flex justify-content-between">
-            <a class="navbar-brand brand fs-4" href="/projects/RaYnk-Labs/public/index.php">
+            <a class="navbar-brand brand fs-4" href="../index.php">
                 <i class="fas fa-arrow-left me-2"></i>RaYnk Labs
             </a>
 
@@ -184,7 +184,7 @@ foreach ($types as $key => $label) {
                     <?= $_SESSION['admin_email'] ?>
                 </span>
 
-                <a href="/projects/RaYnk-Labs/admin/logout.php" class="btn btn-outline-danger btn-sm">
+                <a href="logout.php" class="btn btn-outline-danger btn-sm">
                     <i class="fas fa-sign-out-alt me-1"></i> Logout
                 </a>
             </div>

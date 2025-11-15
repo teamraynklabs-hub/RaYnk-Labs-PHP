@@ -12,16 +12,17 @@
     <div class="container">
         <?php
         // Determine logo link based on admin login status
-        $logoHref = "../admin/index.php";
+        $logoHref = "admin/index.php";
         if (session_status() === PHP_SESSION_ACTIVE && isset($_SESSION['admin_id'])) {
-            $logoHref = "../admin/dashboard.php";
+            $logoHref = "admin/dashboard.php";
         }
         ?>
         <?php 
         $currentPage = basename($_SERVER['PHP_SELF']);
         $currentPath = $_SERVER['REQUEST_URI'];
-        $isHomePage = (strpos($currentPath, 'index.php') !== false || ($currentPage === 'index.php') || (strpos($currentPath, '/public/') !== false && strpos($currentPath, 'index.php') !== false));
-        // Check if we're on the home page (index.php) or root
+        // Check if we're on the home page (index.php in root, not in public or admin)
+        $isHomePage = ($currentPage === 'index.php' && strpos($currentPath, '/public/') === false && strpos($currentPath, '/admin/') === false);
+        // If we're on services, courses, or projects pages, it's not home
         if (strpos($currentPath, 'services.php') !== false || strpos($currentPath, 'courses.php') !== false || strpos($currentPath, 'projects.php') !== false) {
             $isHomePage = false;
         }
@@ -41,12 +42,21 @@
                 <a href="#team">Team</a>
                 <a href="#contact">Contact</a>
             <?php else: ?>
-                <a href="index.php#services">Services</a>
-                <a href="index.php#courses">Courses</a>
-                <a href="index.php#ai-tools">AI Tools</a>
-                <a href="index.php#community">Community</a>
-                <a href="index.php#team">Team</a>
-                <a href="index.php#contact">Contact</a>
+                <?php 
+                // Determine correct path to index.php based on current location
+                $indexPath = 'index.php';
+                if (strpos($currentPath, '/public/') !== false) {
+                    $indexPath = '../index.php';
+                } elseif (strpos($currentPath, '/admin/') !== false) {
+                    $indexPath = '../index.php';
+                }
+                ?>
+                <a href="<?= $indexPath ?>#services">Services</a>
+                <a href="<?= $indexPath ?>#courses">Courses</a>
+                <a href="<?= $indexPath ?>#ai-tools">AI Tools</a>
+                <a href="<?= $indexPath ?>#community">Community</a>
+                <a href="<?= $indexPath ?>#team">Team</a>
+                <a href="<?= $indexPath ?>#contact">Contact</a>
             <?php endif; ?>
         </div>
         <div class="d-flex align-items-center gap-3">

@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 session_start();
-require_once __DIR__ . '/../includes/db.php';
+require_once __DIR__ . '/includes/db.php';
 
 // Try to load content from database
 $pdo = null;
@@ -147,12 +147,12 @@ $meetupModals = [
           integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
           crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/style.css">
 
 </head>
 <body>
-<?php include __DIR__ . '/../includes/header.php'; ?>
-<?php include __DIR__ . '/../includes/alert.php'; ?>
+<?php include __DIR__ . '/includes/header.php'; ?>
+<?php include __DIR__ . '/includes/alert.php'; ?>
 
     <!-- Hero Section -->
     <section class="hero" id="home">
@@ -463,9 +463,9 @@ $meetupModals = [
             foreach ($allTeamMembers as $member):
                 // Handle both default format (img) and database format (image)
                 $imgPath = $member['img'] ?? $member['image'] ?? '';
-                $imagePath = $imgPath ? __DIR__ . '/../' . $imgPath : null;
+                $imagePath = $imgPath ? __DIR__ . '/' . $imgPath : null;
                 $imageExists = $imagePath && file_exists($imagePath);
-                $imageSrc = $imageExists ? '../' . $imgPath : null;
+                $imageSrc = $imageExists ? $imgPath : null;
                 $memberIcon = $member['icon'] ?? 'fa-user';
                 $memberSkills = $member['skills'] ?? '';
             ?>
@@ -525,7 +525,7 @@ $meetupModals = [
             <h2 class="section-title">Get In Touch</h2>
             <div class="contact-content">
                 <div class="contact-form-wrapper">
-                    <form class="contact-form" action="../includes/process_form.php" method="POST">
+                    <form class="contact-form" action="includes/process_form.php" method="POST">
                         <input type="hidden" name="type" value="contact">
                         <input type="hidden" name="origin_title" value="Contact Form">
                         <div class="form-group">
@@ -555,7 +555,7 @@ $meetupModals = [
         </div>
     </section>
 
-<?php include __DIR__ . '/../includes/footer.php'; ?>
+<?php include __DIR__ . '/includes/footer.php'; ?>
 
 <!-- ==================== ALL MODALS (UPDATED COMMUNITY MODAL) ==================== -->
 
@@ -570,7 +570,7 @@ $meetupModals = [
                 <h5 class="modal-title">Request: <?= htmlspecialchars($serviceTitle); ?></h5>
                 <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
             </div>
-            <form action="../includes/process_form.php" method="POST">
+            <form action="includes/process_form.php" method="POST">
                 <div class="modal-body">
                     <input type="hidden" name="type" value="service">
                     <input type="hidden" name="origin_title" value="<?= htmlspecialchars($serviceTitle); ?>">
@@ -600,7 +600,7 @@ $meetupModals = [
                 <h5 class="modal-title">Enroll: <?= htmlspecialchars($courseTitle); ?></h5>
                 <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
             </div>
-            <form action="../includes/process_form.php" method="POST">
+            <form action="includes/process_form.php" method="POST">
                 <div class="modal-body">
                     <input type="hidden" name="type" value="course">
                     <input type="hidden" name="origin_title" value="<?= htmlspecialchars($courseTitle); ?>">
@@ -627,7 +627,7 @@ $meetupModals = [
                 <h5 class="modal-title">Access: <?= htmlspecialchars($tool['title']); ?></h5>
                 <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
             </div>
-            <form action="../includes/process_form.php" method="POST">
+            <form action="includes/process_form.php" method="POST">
                 <div class="modal-body">
                     <input type="hidden" name="type" value="ai_tool">
                     <input type="hidden" name="origin_title" value="<?= htmlspecialchars($tool['title']); ?>">
@@ -654,7 +654,7 @@ $meetupModals = [
                 <h5 class="modal-title"><?= htmlspecialchars($event['title']); ?></h5>
                 <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
             </div>
-            <form action="../includes/process_form.php" method="POST">
+            <form action="includes/process_form.php" method="POST">
                 <div class="modal-body">
                     <input type="hidden" name="type" value="meetup">
                     <input type="hidden" name="origin_title" value="<?= htmlspecialchars($event['title']); ?>">
@@ -680,7 +680,7 @@ $meetupModals = [
                 <h5 class="modal-title">Turning Point App</h5>
                 <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
             </div>
-            <form action="../includes/process_form.php" method="POST">
+            <form action="includes/process_form.php" method="POST">
                 <div class="modal-body">
                     <input type="hidden" name="type" value="turning_point">
                     <input type="hidden" name="origin_title" value="Turning Point App">
@@ -708,7 +708,7 @@ $meetupModals = [
                 </h5>
                 <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
             </div>
-            <form action="../includes/process_form.php" method="POST">
+            <form action="includes/process_form.php" method="POST">
                 <div class="modal-body">
                     <input type="hidden" name="type" value="community">
                     <input type="hidden" name="origin_title" value="RaYnk Innovators Club">
@@ -765,7 +765,7 @@ $meetupModals = [
                 <h5 class="modal-title fw-bold">Join as Student</h5>
                 <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
             </div>
-            <form action="../includes/process_form.php" method="POST">
+            <form action="includes/process_form.php" method="POST">
                 <div class="modal-body">
                     <input type="hidden" name="type" value="community">
                     <input type="hidden" name="origin_title" value="Join as Student">
@@ -791,7 +791,7 @@ $meetupModals = [
                 <h5 class="modal-title fw-bold">Join as Mentor</h5>
                 <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
             </div>
-            <form action="../includes/process_form.php" method="POST">
+            <form action="includes/process_form.php" method="POST">
                 <div class="modal-body">
                     <input type="hidden" name="type" value="community">
                     <input type="hidden" name="origin_title" value="Join as Mentor">
@@ -817,7 +817,7 @@ $meetupModals = [
                 <h5 class="modal-title fw-bold">Join Our Team</h5>
                 <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
             </div>
-            <form action="../includes/process_form.php" method="POST">
+            <form action="includes/process_form.php" method="POST">
                 <div class="modal-body">
                     <input type="hidden" name="type" value="community">
                     <input type="hidden" name="origin_title" value="Join Team">
@@ -838,6 +838,6 @@ $meetupModals = [
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
-<script src="/assets/js/script.js"></script>
+<script src="assets/js/script.js"></script>
 </body>
-</html>l>
+</html>

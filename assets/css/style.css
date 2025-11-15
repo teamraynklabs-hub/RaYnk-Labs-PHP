@@ -1565,10 +1565,18 @@ section {
         flex: 1;
     }
     
-    .mobile-menu-btn,
-    .theme-toggle-btn {
+    .mobile-menu-btn {
         order: 2;
         display: block !important;
+    }
+    
+    .theme-toggle-btn {
+        order: 2;
+        display: inline-flex !important;
+        width: 40px;
+        height: 40px;
+        padding: 8px;
+        font-size: 16px;
     }
     
     .nav-links {
@@ -2026,6 +2034,63 @@ body.light-mode .contact {
 
 body.light-mode .turning-point {
     background: #ffffff;
+}
+
+body.light-mode .blob {
+    opacity: 0.1;
+}
+
+body.light-mode .nav-links.mobile-active a {
+    color: #333;
+    background: rgba(59, 167, 255, 0.1);
+}
+
+body.light-mode .nav-links.mobile-active a:hover {
+    background: rgba(59, 167, 255, 0.2);
+    color: var(--neon-blue);
+}
+
+body.light-mode .table-dark {
+    --bs-table-bg: #ffffff;
+    --bs-table-color: #333;
+    color: #333;
+}
+
+body.light-mode .table-dark th {
+    background: rgba(0, 0, 0, 0.05);
+    color: #333;
+}
+
+body.light-mode .table-dark td {
+    color: #333;
+}
+
+body.light-mode .table-striped > tbody > tr:nth-of-type(odd) > td {
+    background-color: rgba(0, 0, 0, 0.02);
+}
+
+body.light-mode .card {
+    background: #ffffff;
+    border-color: rgba(0, 0, 0, 0.1);
+    color: #333;
+}
+
+body.light-mode .badge {
+    color: #333;
+}
+
+body.light-mode .text-white-50 {
+    color: rgba(0, 0, 0, 0.6) !important;
+}
+
+body.light-mode .btn-outline-light {
+    border-color: rgba(0, 0, 0, 0.2);
+    color: #333;
+}
+
+body.light-mode .btn-outline-light:hover {
+    background: rgba(0, 0, 0, 0.1);
+    color: #333;
 }
 
 /* Utility Classes for Consistency */

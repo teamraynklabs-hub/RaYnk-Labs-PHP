@@ -122,7 +122,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </style>
 </head>
 <body class="admin-login-container">
-    <a href="/projects/RaYnk-Labs/public/index.php" class="back-btn">
+    <a href="../index.php" class="back-btn">
     <i class="fas fa-arrow-left"></i> Back to Home
 </a>
 
