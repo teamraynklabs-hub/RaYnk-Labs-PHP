@@ -11,7 +11,7 @@
 declare(strict_types=1);
 
 // Database credentials (update as needed for your environment).
-$dbHost = 'localhost:3307';
+$dbHost = 'localhost:3306';
 $dbName = 'ranky_labs_db';
 $dbUser = 'root';
 $dbPass = '';
